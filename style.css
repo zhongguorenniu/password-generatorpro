@@ -1,0 +1,207 @@
+
+/* =========================
+   基础
+========================= */
+body{
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(120deg,#6a5af9,#8fd3fe);
+}
+
+/* =========================
+   居中容器
+========================= */
+.container{
+    display:flex;
+    justify-content:center;
+    padding:15px;
+}
+
+/* =========================
+   主卡片（手机优化）
+========================= */
+.card{
+    width:100%;
+    max-width:900px;
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* 标题 */
+.title{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* =========================
+   主体布局
+========================= */
+.main{
+    display:flex;
+    gap:20px;
+}
+
+/* 手机自动变纵向 */
+@media(max-width:768px){
+    .main{
+        flex-direction:column;
+    }
+
+    .btns{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+}
+
+/* =========================
+   盒子
+========================= */
+.box{
+    background:#f7f8ff;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+/* =========================
+   输入
+========================= */
+input[type="text"],
+input[type="number"]{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+/* =========================
+   按钮
+========================= */
+.btns{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+button{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+
+    /* ⭐新增：立体感 */
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    transition:0.2s;
+}
+
+/* ⭐所有按钮 hover效果 */
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* 点击反馈（更像APP） */
+button:active{
+    transform:scale(0.98);
+}
+
+#gen{background:#2d7ff9;color:#fff;}
+#copy{background:#22c55e;color:#fff;}
+#clear{background:#f97316;color:#fff;}
+#save{background:#8b5cf6;color:#fff;}
+
+/* =========================
+   强度条
+========================= */
+.bar{
+    height:10px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:8px;
+}
+
+#barFill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,red,orange,green);
+}
+
+/* =========================
+   历史
+========================= */
+.history{
+    margin-top:20px;
+}
+
+.history-title{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* 每条历史 */
+.history-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f1f5ff;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:8px;
+}
+
+/* 密码文本 */
+.history-item span{
+    flex:1;
+    font-family: monospace;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 按钮组 */
+.history-actions{
+    display:flex;
+    gap:6px;
+}
+
+/* 历史按钮 */
+.history-actions button{
+    width:60px;
+    height:28px;
+    font-size:12px;
+    border:none;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/*多做的样式*/
+.history-actions button{
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+
+.history-actions button:hover{
+    transform:scale(1.05);
+}
+
+
+
+
+
+
+/* 复制 / 删除 */
+.copyBtn{background:#3b82f6;color:#fff;}
+.delBtn{background:#ef4444;color:#fff;}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+<meta charset="UTF-8">
+
+<!-- ⭐ 手机适配 + 锁定缩放 -->
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1,
+maximum-scale=1,
+user-scalable=no,
+viewport-fit=cover">
+
+<title>Password Generator Pro</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
+<!-- PWA核心 -->
+<link rel="manifest" href="manifest.json">
+
+<!-- 图标 -->
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<!-- iOS全屏 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Password Generator Pro">
+
+<!-- Android主题色 -->
+<meta name="theme-color" content="#3B82F6">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+
+    <!-- 标题 -->
+    <div class="title">
+      🔐 Password Generator Pro
+    </div>
+
+    <!-- 主体 -->
+    <div class="main">
+
+      <!-- 左侧 -->
+      <div class="left">
+
+        <div class="box">
+          <label>密码长度</label>
+          <input type="range" id="length" min="4" max="128" value="4">
+          <input type="number" id="lenNum" value="4" min="4" max="128">
+        </div>
+
+        <div class="box">
+          <label>字符类型</label>
+
+          <label><input type="checkbox" id="upper" checked> 大写</label>
+          <label><input type="checkbox" id="lower" checked> 小写</label>
+          <label><input type="checkbox" id="num" checked> 数字</label>
+          <label><input type="checkbox" id="sym" checked> 符号</label>
+
+        </div>
+
+      </div>
+
+      <!-- 右侧 -->
+      <div class="right">
+
+        <div class="box">
+          <label>生成密码</label>
+          <input type="text" id="output" readonly>
+        </div>
+
+        <div class="box">
+          <label>密码强度</label>
+          <div class="bar">
+            <div id="barFill"></div>
+          </div>
+          <div id="text"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 按钮 -->
+    <div class="btns">
+
+      <button id="gen">生成密码</button>
+      <button id="copy">复制密码</button>
+      <button id="clear">清空</button>
+      <button id="save">保存TXT</button>
+
+    </div>
+
+    <!-- 历史记录 -->
+    <div class="history">
+
+      <div class="history-title">
+        历史记录（最多20条）
+      </div>
+
+      <div id="list"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="app.js"></script>
+
+<!-- ⭐ PWA Service Worker注册 -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js');
+  });
+}
+</script>
+
+</body>
+</html>
